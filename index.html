@@ -710,7 +710,7 @@
 				<div class="passport_header">
 					<span>
 						<button type="button" title="关闭" class="btn-close">
-							<i>×</i>
+							<i class="btn-close_i">×</i>
 						</button>
 					</span>
 					<form>
@@ -871,9 +871,17 @@ function changeImg(){
 }	
 </script>
 <script type="text/javascript">
-	$(function(){
+$(function(){
 	$("#sub").click(function(){
 		$("#passport").show();
+	});
+});
+</script>	
+
+<script type="text/javascript">
+$(function(){
+	$(".btn-close_i").click(function(){
+		$("#passport").hide();
 	});
 });
 </script>	
