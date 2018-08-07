@@ -874,14 +874,28 @@ function changeImg(){
 $(function(){
 	$("#sub").click(function(){
 		$("#passport").show();
+		$(".mask").show();
 	});
 });
-</script>	
 
-<script type="text/javascript">
 $(function(){
-	$(".btn-close_i").click(function(){
+	$(".btn-close").click(function(){
 		$("#passport").hide();
+		$(".mask").hide();
+	});
+});
+
+$(function(){
+	$("#inc").click(function(){
+		$("#passport_dlym").show();
+		$(".mask").show();
+	});
+});
+
+$(function(){
+	$(".btn-close").click(function(){
+		$("#passport_dlym").hide();
+		$(".mask").hide();
 	});
 });
 </script>	
