@@ -5,16 +5,17 @@ var uglify = require("gulp-uglify");
 var rename = require("gulp-rename");
 
 //定义一个复制文件的任务
-gulp.task("copy-index",function(){
+gulp.task("copy-guolehui",function(){
 	//此函数的代码是任务copy-index对应的代码，
 	//这句话的意思是，把当前文件夹下的index.html文件拷贝到当前文件夹下的dist文件夹下
 //	gulp.src("index.html").pipe(gulp.dest("./dist"));
-	gulp.src("index.html").pipe(gulp.dest("D:\\phpStudy\\WWW\\guolehuiProject"));
+	gulp.src("guolehui/**/*")
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\project"));
 });
 
 //复制所有的html文件
-gulp.task("copy-html",function(){
-	gulp.src("*.html").pipe(gulp.dest("D:\\phpStudy\\WWW\\guolehuiProject"));
+gulp.task("copy-index.html",function(){
+	gulp.src("index.html").pipe(gulp.dest("D:\\phpStudy\\WWW\\project"));
 });
 
 //复制所有的img文件

@@ -127,12 +127,12 @@ window.onload = function(){
 //敏感词过滤
 //把敏感词：傻逼，sb,SB,妈,日替换为*
 //把得到的16进制码前面加上u,再用转义字符表示
-$("#sendId").onclick =function(){
-	var regObj =/sb|日|逼|傻|擦|\u8349|\u4f60|\u5988/ig;
-	var str=$("#inputId").value;
-	var temp=str.replace(regObj,'*');
-	$("#comment").innerHTML=temp;
-}
+// $("#sendId").onclick =function(){
+// 	var regObj =/sb|日|逼|傻|擦|\u8349|\u4f60|\u5988/ig;
+// 	var str=$("#inputId").value;
+// 	var temp=str.replace(regObj,'*');
+// 	$("#comment").innerHTML=temp;
+// }
 //函数名：qingkongqh
 //函数功能：用正则去掉字符串的空格
 //参数：字符串
