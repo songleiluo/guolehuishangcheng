@@ -1,5 +1,18 @@
 //这句话就相当于:<script src="gulp.js"></script>
 var gulp = require("gulp");
+
+gulp.task("copy-glhs",function(){
+	gulp.src("glhs/**/*")
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\guolehuiProject"));
+});
+gulp.task("watch",function(){
+	gulp.watch("glhs/**/*",["copy-glhs"]);
+});
+
+
+
+//以下无用
+
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var rename = require("gulp-rename");
@@ -14,8 +27,8 @@ gulp.task("copy-guolehui",function(){
 });
 
 //复制所有的html文件
-gulp.task("copy-index.html",function(){
-	gulp.src("index.html").pipe(gulp.dest("D:\\phpStudy\\WWW\\project"));
+gulp.task("copy-html",function(){
+	gulp.src("*.html").pipe(gulp.dest("D:\\phpStudy\\WWW\\project"));
 });
 
 //复制所有的img文件
@@ -77,3 +90,4 @@ gulp.task("watchall",function(){
 	//gulp.watch(["js/index.js","js/goodslist.js"],["concat-uglify-js"]);
 	gulp.watch(["js/index.js","js/goodslist.js"],["concat-uglify-rename-js"]);
 })
+
