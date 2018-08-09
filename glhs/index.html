@@ -1006,7 +1006,7 @@ $(function(){
 
 </script>
 
-
+<!-- 注册 -->
 <script type="text/javascript">
 	$S("#user").onblur = function(){
 		//1、创建对象
@@ -1027,6 +1027,26 @@ $(function(){
 		//4、发送
 		xhr.send();		
 	}
+
+	$("#sub_zc").click(function(event){
+		$.post(
+			"login.php",
+			{
+				"username":$("#user").val(),
+				"password":$("#user_pass").val()
+			},
+			function(data){					
+				if(data=="1"){//登录成功！
+					//记录cookie
+					addCookie("username",$("#user").val(),7);
+					location.href="index.html";
+				}else{
+					alert("注册失败，请填入正确的信息！");
+				}
+			}
+		);
+	});
+
 </script>
 <script type="text/javascript">
 	$S("#btnLogin").onclick = function(){
@@ -1095,36 +1115,3 @@ $(function(){
     }
   })
 </script>
-<!-- <script type="text/javascript">
-	window.onload = function(){
-		// var URL = 'getGoodsList.php';
-		// var params='userid=000001';
-		// ajaxByGet(URL,params,true,function(str){
-		// 	/*解析返回的信息*/
-		// 	let obj=JSON.parse(str);
-			
-			
-		// });
-		//请求json数据拼接字符串，并在URL传参数id跳转
-			$(function(){
-				 $.ajax({
-					  type:"get",
-					  url:"getGoodsList.php",
-					  dataType:"json",
-					  success:function(res){
-					   var str = "<ul class='con_ul'>";
-					   $.each(res.books, function(idx,val) {
-					    str +="<li class=\"sec_li\"><a href='goodsDetail.html?booksId="+val.id+"' class='lp_li_a'><div class='lp_li_imgWrap'><img src='"+val.imgUrl+"'/></div><p class='lp_li_name'>"
-					      +val.title+"</p><p class='lp_li_price'>"
-					      +'￥'+val.price+"</p></a><li>";
-					   });
-					   str += "</ul>";
-					   $('.content').append(str);
-					  },error:function(){
-					   alert(error)
-					  }
-				 });
-			})
-
-	}
-</script> -->
