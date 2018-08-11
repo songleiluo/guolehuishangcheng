@@ -85,3 +85,25 @@ function  huoColor(){
 	}
 	return str;
 }
+//函数名：removekong
+//函数功能：去掉字符串的空格
+//参数：字符串
+//返回值：新的字符串
+function removekong(str){
+	var str1="";
+	for(var i=0;i<str.length-1;i++){
+		if(str[i]!= " "){
+			str1+=str[i];
+		}
+	}
+	return str1
+}
+//函数名：qingkongqh
+//函数功能：用正则去掉字符串的空格
+//参数：字符串
+//返回值：新的字符串
+
+ function qingkongqh(str){
+var str1=str.replace(/\s/g,"");
+ console.log(str1);
+}

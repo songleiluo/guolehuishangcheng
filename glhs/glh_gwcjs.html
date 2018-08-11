@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>果乐汇购物车</title>
 	<link rel="stylesheet" type="text/css" href="css/glh_gwcjs.css">
-	<link rel="stylesheet" type="text/css" href="css/demo.js">
+<!-- 	<link rel="stylesheet" type="text/css" href="css/demo.js"> -->
 	<link rel="stylesheet" type="text/css" href="css/glh_public.css">
 	<link rel="stylesheet" type="text/css" href="css/hzw-city-picker.css">
 </head>
@@ -345,7 +345,6 @@
 									<span class="count_yunsuan">
 										<span class="btn_decrease">-</span>
 										<input class="count" type="text" name="" value="1">
-
 										<span class="btn_increase">+</span>
 									</span>
 								</td>
@@ -676,7 +675,7 @@
 		</div>
 	<div class="mask">
 	</div>
-<script type="text/javascript" src="js/jquery/string.js"></script>
+<script type="text/javascript" src="js/Js_library/string.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="js/city-data.js"></script>
 <script type="text/javascript" src="js/hzw-city-picker.min.js"></script>
@@ -701,27 +700,82 @@ var cityPicker = new HzwCityPicker({
 cityPicker.init();
 
 window.onload = function(){
-		$S(".btn_increase").onclick = function(){
-			var spanDom = this.previousElementSibling;
-			changeCount(this,spanDom,1);
-		}
-	
-		$S(".btn_decrease").onclick = function(){
-			var spanDom = this.nextElementSibling;
-			changeCount(this,spanDom,-1);
-		}
-	
-}
+		// $S(".btn_increase")[0].onclick = function(){
+		// 	var spanDom = this.previousElementSibling;
+		// 	changeCount(this,spanDom,1);
+		// }
+		// $S(".btn_decrease")[0].onclick = function(){
+		// 	var spanDom = this.nextElementSibling;
+		// 	changeCount(this,spanDom,-1);
+		// }
+		//========================================================商品数量================================
+		var $plus = $('.btn_increase'),
+			$reduce = $('.btn_decrease'),
+		$(".btn_increase").click(function(){
+			var $inputVal = $(this).prev('input'),
+				$count=parseInt($inputVal.val())+1,
+				$obj = $(this).parents('.count_yunsuan').find('.btn_decrease'),
+				$priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
 
-function changeCount(selfDom,spanDom,inc){
-	//2、给span内容加一
-	var count = parseInt(spanDom.innerHTML);
-	count=count+inc;
-	if(count<0){
-		count=0;
-	}
-	spanDom.innerHTML = count;
+		});
 }	
+		// // <td width="100px">
+		// 							<span>￥99.00</span>
+		// 						</td>
+		// 						<td width="100px">
+		// 							<span class="count_yunsuan">
+		// 								<span class="btn_decrease">-</span>
+		// 								<input class="count" type="text" name="" value="1">
+		// 								<span class="btn_increase">+</span>
+		// 							</span>
+		// 						</td>
+		// 						<td width="100px">
+		// 							<span>￥0.00</span>
+		// 						</td>
+		// 						<td width="100px">
+		// 							<span>99</span>
+		// 						</td>
+		// 						<td width="100px">
+		// 							<span class="price_money_xj">￥99.00</span>
+		// 						</td>
+		// 						<td width="100px">
+		// 							<a class="product_gwc_sc" href="#">收藏</a>
+		// 							<i>|</i>
+		// 							<a class="product_gwc_deleate" href="#">移除</a>
+		// 						</td>
+		// 					</tr>
+		// 				</tbody>
+		// 				<tfoot>
+		// 					<tr class="gwc_money_tr">
+		// 						<td colspan="4" width="789px"></td>
+		// 						<td colspan="4" width="400px" class="AllMoney">
+		// 							<ul>
+		// 								<li>
+		// 									<span class="gwc_label"><em>商品总金额：</em></span>
+		// 									<span class="product_gwc_price">￥99.00</span>
+		// 								</li>
+		// 								<li class="gwc_youhui">
+		// 									<span class="gwc_label"><em>订单优惠金额：</em></span>
+		// 									<span class="product_gwc_price">￥0.00</span>
+		// 								</li>
+		// 								<li class="All_MONEY_LI">
+		// 									<span class="gwc_label">
+		// 										<i class="gwc_jf">(订单可得积分99) </i><b class="zMoney_font">总金额：</b></span>
+		// 									<span class="product_gwc_price" id="ALL_Count_Money"><b>￥99.00</b></span>
+		// 								</li>
+		// 							</ul>
+		// 						</td>
+	
+
+// function changeCount(selfDom,spanDom,inc){
+// 	2、给span内容加一
+// 	var count = parseInt(spanDom.value);
+// 	count=count+inc;
+// 	if(count<0){
+// 		count=0;
+// 	}
+// 	spanDom.value = count;
+// }	
 // 	//3、计算金额（根据单价和数量）
 // 	//1）、获取单价：
 // 	var price = parseFloat(selfDom.parentNode.previousElementSibling.innerHTML);
